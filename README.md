@@ -1,49 +1,47 @@
 # 3dmaximize
 
 
-## Config bluetooth on raspiberry pi
+# Config bluetooth on raspiberry pi
 
-Install dependencies
+    Install dependencies
 
-# Update apt-get
-sudo apt-get update
+## Update apt-get
+    sudo apt-get update
 
-# Install pip3 (case you already have it skip this step)
-sudo apt-get install -y python3-pip
+## Install pip3 (case you already have it skip this step)
+    sudo apt-get install -y python3-pip
 
-# Install dependencies
-sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev libbluetooth-dev
-
-## Install packages
+## Install dependencies
+    sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev libbluetooth-dev
 
 # Install the necessary additional packages
-sudo apt install bluetooth pi-bluetooth bluez
+    sudo apt install bluetooth pi-bluetooth bluez
 
-# Install pybluez
+## Install pybluez
     sudo pip3 install pybluez
 
-## Configuring the bluetooth service
+# Configuring the bluetooth service
 
-# Configure the bluetooth service
+## Configure the bluetooth service
     sudo nano /etc/systemd/system/dbus-org.bluez.service
 
-# Edit the file with the following line
+## Edit the file with the following line
     ExecStart=/usr/lib/bluetooth/bluetoothd -C
 
-# Insert the following line to register a serial port service
+## Insert the following line to register a serial port service
     ExecStartPost=/usr/bin/sdptool add SP
 
     Save the file and exit [ctrl+o] to save and [ctrl+x] to exit
 
-# To reload the file run:
+## To reload the file run:
     systemctl daemon-reload
 
-# Restart the bluetooth
+## Restart the bluetooth
     systemctl restart bluetooth
 
-## Discoverable mode
+# Discoverable mode
 
-# Run the following commands to able to pair and send/receive data
+## Run the following commands to able to pair and send/receive data
     sudo bluetoothctl
 
     [bluetooth]# 
@@ -52,46 +50,46 @@ sudo apt install bluetooth pi-bluetooth bluez
     [bluetooth]# pairable on
     [bluetooth]# quit
 
-## Setting up Obex FTP to send files over bluetooth
+# Setting up Obex FTP to send files over bluetooth
 
-# Install Obex FTP
+## Install Obex FTP
     sudo apt-get install -y obexftp
 
-# Check if the installation was sucessed
+## Check if the installation was sucessed
     sudo apt-cache show obexftp
 
-## Extra commands
+# Extra commands
 
-# Set up bluez service
+## Set up bluez service
     systemctl status bluetooth
 
-# Command to start bluetooth
+## Command to start bluetooth
     sudo systemctl start bluetooth
 
-# Commnad to stop bluetooth
+## Commnad to stop bluetooth
     sudo systemctl stop bluetooth
 
-# Command to enable bluetooth at boot
+## Command to enable bluetooth at boot
     sudo systemctl enable bluetooth
 
-# Command to disable bluetooth at boot
+## Command to disable bluetooth at boot
     sudo systemctl disable bluetooth
 
-# Command to config bluetooth
+## Command to config bluetooth
     sudo bluetoothctl
 
-# Run help to see a list of all commands
+## Run help to see a list of all commands
     [bluetooth]# help
 
-# Enable discovering by running
+## Enable discovering by running
     [bluetooth]# discoverable on
 
-## Configuring audio in raspberry pi
+# Configuring audio in raspberry pi
 
-# Set USB Audio as Default Audio Device
+## Set USB Audio as Default Audio Device
     sudo nano /usr/share/alsa/alsa.conf
 
-# Change the value of the following lines
+## Change the value of the following lines
     defaults.ctl.card 0
     defaults.pcm.card 0
 
@@ -100,12 +98,12 @@ sudo apt install bluetooth pi-bluetooth bluez
 
 Save the file and exit [ctrl+o] to save and [ctrl+x] to exit
 
-# Install pyaudio
+## Install pyaudio
     sudo apt-get install -y python3-pyaudio
 
-# Check the alsamixer and rejust the mic and volume gain if you will
+## Check the alsamixer and rejust the mic and volume gain if you will
     alsamixer
 
-# Install pulseaudio (this will take a while)
+## Install pulseaudio (this will take a while)
     sudo apt-get install pulseaudio
     sudo apt-get purge portaudio19-dev
