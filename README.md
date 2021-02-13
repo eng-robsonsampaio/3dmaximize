@@ -15,7 +15,7 @@
     sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev libbluetooth-dev
 
 # Install the necessary additional packages
-    sudo apt install bluetooth pi-bluetooth bluez
+    sudo apt install -y bluetooth pi-bluetooth bluez
 
 ## Install pybluez
     sudo pip3 install pybluez
@@ -105,5 +105,11 @@ Save the file and exit [ctrl+o] to save and [ctrl+x] to exit
     alsamixer
 
 ## Install pulseaudio (this will take a while)
-    sudo apt-get install pulseaudio
+    sudo apt-get install -y pulseaudio
     sudo apt-get purge portaudio19-dev
+
+# GPio Library
+
+## Install RPi.GPio
+
+    sudo apt-get install -y python3-dev python3-rpi.gpio

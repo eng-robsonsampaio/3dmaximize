@@ -13,7 +13,6 @@ server_socket.listen(1)
 client_socket,address = server_socket.accept()
 
 print("Accepted connection from ",address)
-recording_path = "/home/pi/recording.py"
 
 while True:
     res = client_socket.recv(1024)
@@ -22,9 +21,10 @@ while True:
         print ("Quiting")
         break
     else:
+        print("Recording in 5 seconds")
         sleep(5)
-#        subprocess.call(['python3 /home/pi/recording.py '+address[0]])
-        os.system("python3 /home/pi/recording.py "+address[0]) # calls the script for recording
+        os.system("python3 /home/pi/3dmaximize/recording.py "+address[0]) # calls the script for recording
 
+print("End of communication")
 client_socket.close()
 server_socket.close()

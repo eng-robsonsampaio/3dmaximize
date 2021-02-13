@@ -12,12 +12,12 @@ import RPi.GPIO as GPIO
 BUTTON_GPIO = 16 #GPIO to stop the recording
 
 form_1 = pyaudio.paInt16 # 16-bit resolution
-chans = 2 # 1 channel
+chans = 1 # 1 channel
 samp_rate = 44100 # 44.1kHz sampling rate
 chunk = 4096 # 2^9 samples for buffer
 record_secs = 30 # seconds to record
 dev_index = 1 # device index found by p.get_device_info_by_index(ii)
-wav_output_filename = 'test.wav' # name of .wav file
+wav_output_filename = 'audio.wav' # name of .wav file
 MACADD = sys.argv[1]
 
 GPIO.setmode(GPIO.BCM)
