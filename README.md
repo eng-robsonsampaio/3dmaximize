@@ -8,7 +8,7 @@
 ## Update apt-get
     sudo apt-get update
 
-## Install pip3 (case you already have it skip this step)
+## Install pip3 (case you already have it, skip this step)
     sudo apt-get install -y python3-pip
 
 ## Install dependencies
@@ -98,11 +98,28 @@
 
 Save the file and exit [ctrl+o] to save and [ctrl+x] to exit
 
+## Also change the asound.conf with sudo (if not created then create it)
+    sudo nano /etc/asound.conf
+    
+    pcm.!default {
+        type hw
+        card 1
+    }
+
+    ctl.!default {
+        type hw
+        card 1
+    }
+
+
 ## Install pyaudio
     sudo apt-get install -y python3-pyaudio
 
 ## Check the alsamixer and rejust the mic and volume gain if you will
     alsamixer
+
+## Do the same with sudo
+    sudo alsamixer
 
 ## Install pulseaudio (this will take a while)
     sudo apt-get install -y pulseaudio
