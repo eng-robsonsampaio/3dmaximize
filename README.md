@@ -1,15 +1,14 @@
 # 3dmaximize
 
-
-# Config bluetooth on raspiberry pi
-
-    Install dependencies
+# Basic libraries
 
 ## Update apt-get
     sudo apt-get update
 
 ## Install pip3 (case you already have it, skip this step)
     sudo apt-get install -y python3-pip
+
+# Config bluetooth on raspiberry pi
 
 ## Install dependencies
     sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev libbluetooth-dev
