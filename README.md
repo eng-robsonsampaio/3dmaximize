@@ -1,5 +1,3 @@
-# 3dmaximize
-
 # Basic libraries
 
 ## Update apt-get
